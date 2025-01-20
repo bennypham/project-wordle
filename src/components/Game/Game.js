@@ -1,5 +1,6 @@
 import React from 'react';
 import GuessInput from '../GuessInput/GuessInput';
+import RenderGuess from '../RenderGuess/RenderGuess';
 
 import { sample } from '../../utils';
 import { WORDS } from '../../data';
@@ -11,9 +12,18 @@ const answer = 'hello';
 console.info({ answer });
 
 function Game() {
+	const [guesses, setGuesses] = React.useState([]);
+
+	// Update guesses array with tempGuessWord
+	function handleSubmitGuesses(tempGuessWord) {
+		console.log({ tempGuessWord });
+		setGuesses([...guesses, tempGuessWord]);
+	}
+
 	return (
 		<div>
-			<GuessInput answer={answer} />
+			<RenderGuess guesses={guesses}></RenderGuess>
+			<GuessInput handleSubmitGuesses={handleSubmitGuesses} />
 		</div>
 	);
 }

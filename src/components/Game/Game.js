@@ -47,7 +47,6 @@ function Game() {
 
 	return (
 		<div>
-			{gameStatus}
 			<RenderGuess guesses={guesses} answer={answer}></RenderGuess>
 			<GuessInput
 				handleSubmitGuesses={handleSubmitGuesses}

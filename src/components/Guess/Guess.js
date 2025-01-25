@@ -14,6 +14,7 @@ function Cell({ letter, status }) {
 
 function Guess({ value, answer }) {
 	const result = checkGuess(value, answer);
+	const gameStatus = 'running';
 
 	return (
 		<p className="guess">

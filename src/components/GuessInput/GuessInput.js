@@ -1,6 +1,6 @@
 import React from 'react';
 
-function InputForm({ handleSubmitGuesses }) {
+function InputForm({ handleSubmitGuesses, gameStatus }) {
 	const [tempGuessWord, setTempGuessWord] = React.useState('');
 
 	function handleSubmit(event) {
@@ -19,6 +19,7 @@ function InputForm({ handleSubmitGuesses }) {
 				required
 				pattern="[A-Za-z]{5}"
 				title="5 letter word only"
+				disabled={gameStatus !== 'running'}
 				onChange={(event) => {
 					const convertGuessWord = event.target.value.toUpperCase();
 					setTempGuessWord(convertGuessWord);
